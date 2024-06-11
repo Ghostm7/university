@@ -1,3 +1,4 @@
+
 <x-app-web-layout>
 
 @include('role-permission.nav-links')
@@ -12,8 +13,8 @@
         <div class="card mt-5">
 
             <div class="card-header">
-                <h4>Permissions
-                    <a href="{{url ('permissions/create')}}"class="btn btn-primary  float-right">Add Permission</a>
+                <h4>Roles
+                    <a href="{{url ('roles/create')}}"class="btn btn-primary  float-right">Add Role</a>
                 </h4>
 
             </div>
@@ -27,14 +28,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($permissions as $permission)
+                        @foreach ($roles as $role)
                         
                         <tr>
-                            <td>{{$permission->id}}</td>
-                            <td>{{$permission->name}}</td>
+                            <td>{{$role->id}}</td>
+                            <td>{{$role->name}}</td>
                             <td>
-                                <a href="{{url ('permissions/'.$permission->id.'/edit')}}" class="btn btn-success">Edit</a>
-                                <a href="{{url ('permissions/'.$permission->id.'/delete')}}"class="btn btn-danger mx-2">Delete</a>
+                            <a href="{{url ('roles/'.$role->id.'/give-permissions')}}" class="btn btn-success">
+                               Add / Edit Role Permission
+                            </a>
+                                <a href="{{url ('roles/'.$role->id.'/edit')}}" class="btn btn-success">Edit</a>
+                                <a href="{{url ('roles/'.$role->id.'/delete')}}"class="btn btn-danger mx-2">Delete</a>
 
                             </td>
                         </tr>
